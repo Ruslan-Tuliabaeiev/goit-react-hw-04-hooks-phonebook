@@ -1,93 +1,191 @@
-import { Component } from "react/cjs/react.production.min";
+//import { Component } from "react/cjs/react.production.min";
+
+//import PropTypes from'prop-types';
+import { useState } from 'react';
 import style from './phonebook.module.css';
-import PropTypes from'prop-types';
+import { nanoid } from 'nanoid'
+//
+const id = nanoid();
+export  function Form({onAddContacts}) {
+const [name, setName] = useState('');
+const [number, setNumber] = useState('');
 
 
-export class Form extends Component {
-     static propTypes = {
-        onAddContacts: PropTypes.func.isRequired
-     };
-      state = {
-         name: '',
-         number: '',
-        };
+const handleChange = event => {
+  console.log(event.target.value)
+  const {name, value} = event.target;
+  
+  switch(name) {
+    case 'name':
+       setName(value);
+    break; 
+
+    case 'number':
+       setNumber(value);
+    break;
+default:
+  return;
+  }
 
 
-        handleChange  = e => {
-            const {name, value} = e.currentTarget;
-            this.setState({[name]: value});
-                }
+};
+const handleSubmit = (event) => {
+  event.preventDefault()
+ console.log(name, number)
+onAddContacts({name, id, number});
+reset();
+}
+
+
+const  reset = () => {
+  setNumber('')
+  setName('')
+
+     }
+
+//////////
+
+return (
+  <>
+  <h1 className={style.contact}>Phonebook</h1> 
+  <form className={style.formStyle} onSubmit={handleSubmit} >
+ <div className={style.blockList}>
+ <span className={style.span}>Neme:</span> 
+   <label >
+   <input
+   type="text"
+   name="name"
+   pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+   title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+   required
+value={name}
+ onChange={handleChange}
+
+ 
+
+
+/>
+
+ </label>
+  
+ </div>
+ <div className={style.blockList}>
+ <span className={style.span}>Number:</span> 
+
+ <label>
+ <input
+   type="tel"
+   name="number"
+   pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+   title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+   required
+   value={number}
+ onChange={handleChange}
+
+ 
+
+ />
+ </label> 
+ </div>
+  <div> <button  className={style.buttonSudmit}
+  type='submit' >Add contact</button>
+   </div>
+ </form>
+ </>
+)
+
+};
+
+// export default Form;
+
+
+
+//=========
+// export class Form extends Component {
+//      static propTypes = {
+//         onAddContacts: PropTypes.func.isRequired
+//      };
+//       state = {
+//          name: '',
+//          number: '',
+//         };
+
+
+//         handleChange  = e => {
+//             const {name, value} = e.currentTarget;
+//             this.setState({[name]: value});
+//                 }
 
                 
-handleSubmit = (e) => {
-    e.preventDefault()
-    const {name, number} = this.state
-    this.props.onAddContacts({name, number})
-      this.reset();
+// handleSubmit = (e) => {
+//     e.preventDefault()
+//     const {name, number} = this.state
+//     this.props.onAddContacts({name, number})
+//       this.reset();
      
-   }
-   reset = () => {
-    this.setState({name: '', number: '' })
-  }
-  render() {
+//    }
+//    reset = () => {
+//     this.setState({name: '', number: '' })
+//   }
+//   render() {
  
-    return (
+//     return (
       
- <>
- <h1 className={style.contact}>Phonebook</h1>
-   <form className={style.formStyle}  onSubmit={this.handleSubmit}>
-  <div className={style.blockList}>
-  <span className={style.span}>Neme:</span> 
-    <label >
-    <input
-    type="text"
-    name="name"
-    pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-    title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-    required
+//  <>
+//  <h1 className={style.contact}>Phonebook</h1>
+//    <form className={style.formStyle}  onSubmit={this.handleSubmit}>
+//   <div className={style.blockList}>
+//   <span className={style.span}>Neme:</span> 
+//     <label >
+//     <input
+//     type="text"
+//     name="name"
+//     pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+//     title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+//     required
  
-  value={this.state.name}
+//   value={this.state.name}
  
-  onChange={this.handleChange }
+//   onChange={this.handleChange }
  
  
- />
+//  />
  
-  </label>
+//   </label>
    
-  </div>
-  <div className={style.blockList}>
-  <span className={style.span}>Number:</span> 
+//   </div>
+//   <div className={style.blockList}>
+//   <span className={style.span}>Number:</span> 
  
-  <label>
-  <input
-    type="tel"
-    name="number"
-    pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-    title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-    required
-    value={this.state.number}
-  onChange={this.handleChange}
+//   <label>
+//   <input
+//     type="tel"
+//     name="number"
+//     pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+//     title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+//     required
+//     value={this.state.number}
+//   onChange={this.handleChange}
  
   
  
-  />
-  </label> 
-  </div>
-   <div> <button  className={style.buttonSudmit}
-   type='submit' >Add contact</button>
-    </div>
-  </form>
+//   />
+//   </label> 
+//   </div>
+//    <div> <button  className={style.buttonSudmit}
+//    type='submit' >Add contact</button>
+//     </div>
+//   </form>
 
 
  
- </>
- )
+//  </>
+//  )
   
-  }
+//   }
  
             
-}
+// }
 
 
 
