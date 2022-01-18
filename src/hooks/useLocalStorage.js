@@ -1,7 +1,7 @@
 
-
+import { useState } from 'react';
 import { useEffect } from 'react';
-import { useState } from 'react/cjs/react.development';
+
 
 export const useLocalStorage = (key, defValue) => {
 
