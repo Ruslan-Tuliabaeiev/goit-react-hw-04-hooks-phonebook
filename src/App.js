@@ -6,13 +6,13 @@ import { Contacts } from './components/Contacts';
 import { Form } from './components/Form';
 import { Filter } from './components/Filter';
 import style from './components/phonebook.module.css';
-import { useState } from 'react/cjs/react.development';
-//import { useLocalStorage } from './hooks/useLocalStorage';
+import { useState } from 'react'
+import { useLocalStorage } from './hooks/useLocalStorage';
 
 
 function App() {
-//'setContacts',
-  const [contacts, setContacts] = useState('')
+//,
+  const [contacts, setContacts] = useLocalStorage('setContacts', '')
   const [filter, setFilter] = useState('')
 
 
