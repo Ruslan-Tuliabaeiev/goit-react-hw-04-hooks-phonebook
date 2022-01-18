@@ -1,5 +1,5 @@
 
-//import React, { Component } from 'react';
+
 
 import { Contacts } from './components/Contacts';
 
@@ -8,7 +8,7 @@ import { Filter } from './components/Filter';
 import style from './components/phonebook.module.css';
 import { useState } from 'react/cjs/react.development';
 import { useLocalStorage } from './hooks/useLocalStorage';
-//import setContacts from  './setContacts.json';
+
 
 function App() {
 
@@ -38,7 +38,6 @@ const handleSubmit = ({name, id,  number}) => {
    setContacts(prevState => [contact, ...prevState] )}
 
 }
-
 
 
  const visibleContacts = findContacts()
