@@ -7,12 +7,12 @@ import { Form } from './components/Form';
 import { Filter } from './components/Filter';
 import style from './components/phonebook.module.css';
 import { useState } from 'react/cjs/react.development';
-import { useLocalStorage } from './hooks/useLocalStorage';
+//import { useLocalStorage } from './hooks/useLocalStorage';
 
 
 function App() {
-
-  const [contacts, setContacts] = useLocalStorage('setContacts', '')
+//'setContacts',
+  const [contacts, setContacts] = useState('')
   const [filter, setFilter] = useState('')
 
 
