@@ -1,6 +1,4 @@
-//import { Component } from "react/cjs/react.production.min";
 
-//import PropTypes from'prop-types';
 import { useState } from 'react';
 import style from './phonebook.module.css';
 import { nanoid } from 'nanoid'
@@ -12,7 +10,7 @@ const [number, setNumber] = useState('');
 
 
 const handleChange = event => {
-  console.log(event.target.value)
+  // console.log(event.target.value)
   const {name, value} = event.target;
   
   switch(name) {
@@ -31,7 +29,7 @@ default:
 };
 const handleSubmit = (event) => {
   event.preventDefault()
- console.log(name, number)
+//  console.log(name, number)
 onAddContacts({name, id, number});
 reset();
 }
