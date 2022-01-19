@@ -6,7 +6,8 @@ import { useState, useEffect  } from 'react';
 export const useLocalStorage = (key, defValue) => {
 
     const [state, setstate] = useState(() => {
-        return (JSON.parse(localStorage.getItem('contacts')) ?? [
+        return (
+            JSON.parse(localStorage.getItem('contacts')) ?? [
             { "id": "id-1", "name": "Rosie Simpson", "number": "459-12-56" },
             { "id": "id-2", "name": "Hermione Kline", "number": "443-89-12" },
             { "id": "id-3", "name": "Eden Clements", "number": "645-17-79" },
