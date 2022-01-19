@@ -12,7 +12,7 @@ import { useLocalStorage } from './hooks/useLocalStorage';
 
 function App() {
 
-  const [contacts, setContacts] = useLocalStorage('setContacts', '')
+  const [contacts, setContacts] = useLocalStorage('setContacts', '');
   const [filter, setFilter] = useState('')
 
 
