@@ -1,6 +1,6 @@
+import { useState, useEffect  } from 'react';
 
-import { useState } from 'react';
-import { useEffect } from 'react';
+
 
 
 export const useLocalStorage = (key, defValue) => {
@@ -13,7 +13,6 @@ export const useLocalStorage = (key, defValue) => {
             { "id": "id-4", "name": "Annie Copeland", "number": "227-91-26" } ])
     
     })
-
     useEffect(() => {
         localStorage.setItem('contacts', JSON.stringify(state))
     }, [state]);
