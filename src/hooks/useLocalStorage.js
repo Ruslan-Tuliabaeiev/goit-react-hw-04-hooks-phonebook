@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 
-export const useLocalStorage = ({key, defValue}) => {
+export const useLocalStorage = (key, defValue) => {
 
     const [state, setstate] = useState(() => {
         return (JSON.parse(localStorage.getItem('contacts')) ?? [
@@ -23,5 +23,4 @@ export const useLocalStorage = ({key, defValue}) => {
 
 }
 
-
-
+export default useLocalStorage;
