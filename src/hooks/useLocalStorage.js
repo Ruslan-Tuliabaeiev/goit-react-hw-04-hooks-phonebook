@@ -14,7 +14,7 @@ export const useLocalStorage = (key, defValue) => {
     
     })
     useEffect(() => {
-        localStorage.setItem('contacts', JSON.stringify(state))
+        localStorage.setItem('contacts', JSON.stringify(useState))
     }, [state]);
     return [state, setstate]
 
