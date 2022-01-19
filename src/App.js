@@ -1,12 +1,10 @@
 
-
-
+import { useState } from 'react';
 import { Contacts } from './components/Contacts';
-
 import { Form } from './components/Form';
 import { Filter } from './components/Filter';
 import style from './components/phonebook.module.css';
-import { useState } from 'react';
+
 import { useLocalStorage } from './hooks/useLocalStorage';
 
 
